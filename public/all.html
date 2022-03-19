@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Selfie App</title>
+   
+  </head> 
+  <body>
+      <h1>Data Selfie App: Get All</h1>
+<script>
+
+    async function getData(){
+        const response = await fetch('/api'); 
+        const data = await response.json();
+
+for( item of data){
+    const root = document.createElement('div');
+    const latitude = document.createElement('div');
+    const longitude = document.createElement('div');
+    latitude.textContent = `latitude: ${item.lat}`;
+    longitude.textContent = `longitude: ${item.lon}`;
+    const date = document.createElement('div');
+    const dateString = new Date(item.timestamp).toLocaleString();
+    date.textContent = `date: ${dateString}`;
+    root.append(latitude, longitude, date);
+    document.body.append(root);
+}
+
+        console.log(data);
+    }
+    getData();
+</script>
+  </body>
+  </html>

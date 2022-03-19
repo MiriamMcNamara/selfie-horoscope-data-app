@@ -18,3 +18,12 @@ app.post("/api", (req, res) => {
   database.insert(data);
   res.sendStatus(200);
 });
+
+app.get("/api", (req, res) => {
+  database.find({}, (err, data) => {
+    if (err) {
+      res.sendStatus(500);
+    }
+    res.json(data);
+  });
+});
