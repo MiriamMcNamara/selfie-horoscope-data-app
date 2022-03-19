@@ -14,6 +14,21 @@
         document.getElementById('latitude').textContent = lat;
         const lon = position.coords.longitude;
         document.getElementById('longitude').textContent = lon;
+
+const data = {lat, lon};
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+}
+fetch('/api', options).then(res =>{
+    console.log(res);
+}).catch(err =>{
+    console.log(err)
+});
+
     })
     } else{
         console.log('geolocation is not available')
