@@ -6,6 +6,8 @@
    
   </head> 
   <script>
+
+      function sendData(){
     if('geolocation' in navigator){
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(position =>{
@@ -28,18 +30,20 @@ fetch('/api', options).then(res =>{
 }).catch(err =>{
     console.log(err)
 });
+        
 
     })
     } else{
         console.log('geolocation is not available')
     }
+}
 </script>
   <body>
     <header>
       <h1>Data selfie App</h1>
       <h2>Hello!</h2>
-      <p>latitude: <span id="latitude"></span></p><br />
-      <p>longitude: <span id="longitude"></span></p>
     </header>
- 
+    <p>latitude: <span id="latitude"></span></p><br />
+    <p>longitude: <span id="longitude"></span></p>
+    <button onclick="sendData()">SUBMIT</button>
 </body>
