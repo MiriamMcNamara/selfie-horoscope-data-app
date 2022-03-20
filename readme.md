@@ -1,8 +1,8 @@
 # Data Selfie App
 
-This was a code-along with the Coding Train videos on YouTube
+This code was created during a code-along with the Coding Train videos on YouTube. I completed this project in a few hours to review basic Node.js server setup and learn a bit of P5.js.
 
-Based on the project by Joey Lee
+Based on the project by Joey Lee!
 
 # Intial steps to setup Node server
 
@@ -25,5 +25,5 @@ In index.js:
 - Send that info to the server using fetch() POST method
 - install nebd to create a database file; insert data in the post route
 - create a submit button, event listener to submit the data onclick
-- create all.html and create a GET route to get info from the database and display on the DOM
+- create /logs and create a GET route to get info from the database and display on the DOM
 - add P5.js and code to access webcam and capture images
