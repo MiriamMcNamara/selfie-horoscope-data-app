@@ -3,6 +3,9 @@ const express = require("express"); //require express
 const fetch = require("node-fetch");
 const app = express(); //create the app that uses it
 const Datastore = require("nedb"); //require nebd to create database
+require("dotenv").config(); //needed to use .env variables!
+
+// console.log(process.env);
 
 app.listen(3000, () => console.log("listening at 3000")); //listen on port
 app.use(express.static("public")); //serve static files first of all!

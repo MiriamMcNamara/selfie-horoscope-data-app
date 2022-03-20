@@ -35,6 +35,7 @@ In index.js:
 - find the API documentation for getting the weather (you need to send latitude, longitude, and your API key in a particular format)
 - in the already-constructed on-click for submitting lat/lon to database, send that info as params to the server
 - construct a GET route that makes a call to the external API (in this case, I installed node-fetch and required it so that I could use fetch in the server - practice with axios next?)
+- install dotenv and require in index.js!
   -put API in a .env file, put .env in the gitignore
   - remember to send the response back to the client! res.send/res.json
   - **_currently my API key isn't working yet but it said it could take a few hours, so To Be Continued_**
