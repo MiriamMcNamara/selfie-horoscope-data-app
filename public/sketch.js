@@ -7,6 +7,17 @@ function setup() {
 
   video.size(320, 240); //resize as needed using .size();
 
+  //assign variable to the mood input
+  let inputID = document.getElementById("mood");
+  let mood = "";
+  //add a listener to the object for blur (unclear on this)
+  inputID.addEventListener("blur", function () {
+    //the value attribute is the way to get what the user entered:
+
+    mood = inputID.value.toString();
+    console.log("mood:", mood);
+  });
+
   const button = document.getElementById("submit"); //create button variable
   button.addEventListener("click", async (event) => {
     //create event listener
@@ -37,7 +48,7 @@ function setup() {
         document.getElementById("weather").textContent = weather;
         document.getElementById("temp").textContent = 1.8 * (temp - 273) + 32;
 
-        const data = { lat, lon, image64, weather, temp }; //bundle up variables you wanna send
+        const data = { lat, lon, image64, weather, temp, mood }; //bundle up variables you wanna send
 
         //need options for fetch POST (at least method, body)
         const options = {
