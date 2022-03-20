@@ -1,4 +1,6 @@
+const { response } = require("express");
 const express = require("express"); //require express
+const fetch = require("node-fetch");
 const app = express(); //create the app that uses it
 const Datastore = require("nedb"); //require nebd to create database
 
@@ -28,4 +30,16 @@ app.get("/api", (req, res) => {
     }
     res.json(data);
   });
+});
+
+//GET for weather, external API
+app.get("/weather/:lat/:lon", async (req, res) => {
+  console.log("weather hit:", req.params);
+  const lat = req.params.lat;
+  const lon = req.params.lon;
+  const api_key = process.env.API_KEY;
+  const api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
+  const fetch_response = await fetch(api_url);
+  const json = await fetch_response.json();
+  res.send(json);
 });

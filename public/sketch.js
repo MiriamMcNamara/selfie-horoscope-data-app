@@ -14,7 +14,7 @@ function setup() {
     if ("geolocation" in navigator) {
       //if geolocation is available
       console.log("geolocation available");
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
         //get the current position
         console.log("position:", position);
         //assign variables to latitude and longitude and post in p tags
@@ -28,6 +28,10 @@ function setup() {
 
         const data = { lat, lon, image64 }; //bundle up variables you wanna send
 
+        const api_url = `/weather/${lat}/${lon}`;
+        const response = await fetch(api_url);
+        const json = await response.json();
+        console.log("weather json:", json);
         //need options for fetch POST (at least method, body)
         const options = {
           method: "POST",
