@@ -26,12 +26,19 @@ function setup() {
         video.loadPixels(); //this is needed for image capture
         const image64 = video.canvas.toDataURL(); //assign variable to create Base64-encoded image
 
-        const data = { lat, lon, image64 }; //bundle up variables you wanna send
-
         const api_url = `/weather/${lat}/${lon}`;
         const response = await fetch(api_url);
         const json = await response.json();
         console.log("weather json:", json);
+
+        const weather = json.weather[0].main;
+        const temp = json.main.temp;
+
+        document.getElementById("weather").textContent = weather;
+        document.getElementById("temp").textContent = 1.8 * (temp - 273) + 32;
+
+        const data = { lat, lon, image64, weather, temp }; //bundle up variables you wanna send
+
         //need options for fetch POST (at least method, body)
         const options = {
           method: "POST",

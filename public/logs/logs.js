@@ -8,9 +8,14 @@ async function getData() {
 
     const latitude = document.createElement("div"); //latitude element
     const longitude = document.createElement("div"); //longitude element
+    const weather = document.createElement("div");
+    const temp = document.createElement("div");
     //use textContent to assign value from GET using template literal
     latitude.textContent = `latitude: ${item.lat}`;
     longitude.textContent = `longitude: ${item.lon}`;
+    weather.textContent = `weather: ${item.weather}`;
+    const temperature = 1.8 * (item.temp - 273) + 32;
+    temp.textContent = `temp: ${temperature}`;
 
     const date = document.createElement("div"); //timestamp element
     //this makes timestamp pretty!
@@ -22,7 +27,7 @@ async function getData() {
     image.alt = "miriam selfie"; //alt text
 
     //append the new divs to the root element
-    root.append(latitude, longitude, date, image);
+    root.append(latitude, longitude, date, image, weather, temp);
     //append the root to the document
     document.body.append(root);
   }
