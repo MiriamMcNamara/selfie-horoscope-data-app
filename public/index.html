@@ -2,12 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
     <title>Data Selfie App</title>
    
   </head> 
   <script>
+      function setup(){
 
-      function sendData(){
+        noCanvas();
+const video= createCapture(VIDEO);
+video.size(320, 240);
+const button = document.getElementById('submit');
+button.addEventListener('click', async event =>{
     if('geolocation' in navigator){
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(position =>{
@@ -16,8 +22,10 @@
         document.getElementById('latitude').textContent = lat;
         const lon = position.coords.longitude;
         document.getElementById('longitude').textContent = lon;
+video.loadPixels();
+        const image64 = video.canvas.toDataURL();
 
-const data = {lat, lon};
+const data = {lat, lon, image64};
 const options = {
     method: 'POST',
     headers: {
@@ -36,7 +44,9 @@ fetch('/api', options).then(res =>{
     } else{
         console.log('geolocation is not available')
     }
-}
+})
+      }
+      
 </script>
   <body>
     <header>
@@ -45,6 +55,6 @@ fetch('/api', options).then(res =>{
     </header>
     <p>latitude: <span id="latitude"></span></p><br />
     <p>longitude: <span id="longitude"></span></p>
-    <button onclick="sendData()">SUBMIT</button>
+    <button id="submit">SUBMIT</button>
 </body>
 </html>

@@ -22,7 +22,9 @@ for( item of data){
     const date = document.createElement('div');
     const dateString = new Date(item.timestamp).toLocaleString();
     date.textContent = `date: ${dateString}`;
-    root.append(latitude, longitude, date);
+    const image = document.createElement('img');
+    image.src = item.image64;
+    root.append(latitude, longitude, date, image);
     document.body.append(root);
 }
 
