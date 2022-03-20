@@ -1,20 +1,29 @@
-Data Selfie App
-Code Along with the Coding Train vids
+# Data Selfie App
+
+This was a code-along with the Coding Train videos on YouTube
+
 Based on the project by Joey Lee
 
-npm init
+# Intial steps to setup Node server
 
-npm install express
+- npm init
 
-npm install nodemon
+- npm install express
+
+- npm install nodemon (to get live server reload; call this in terminal by saying `nodemon index.js`)
 
 In index.js:
-require express
-app = express();
-app.listen(port, function)
 
-Use navigator.geolocation on the client side to get location of the browser and display on the DOM
-Send that info to the server using fetch() POST method
-install nebd to create a database file; insert data in the post route
-create a submit button to submit the data onclick
-create all.html and create a GET route to get info from the database and display on the DOM
+- require express
+- app = express();
+- app.listen(port, function)
+- app.use static files, **_express.json to parse data!_**
+
+# Rest of Project:
+
+- Use navigator.geolocation on the client side to get location of the browser and display on the DOM
+- Send that info to the server using fetch() POST method
+- install nebd to create a database file; insert data in the post route
+- create a submit button, event listener to submit the data onclick
+- create all.html and create a GET route to get info from the database and display on the DOM
+- add P5.js and code to access webcam and capture images
