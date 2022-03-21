@@ -1,4 +1,4 @@
-# Data Selfie App
+# Data Selfie App + Horoscope
 
 Initially this was created during a code-along with the Coding Train videos on YouTube. I completed this project in a few hours to review basic Node.js server setup using simple HTML static files, as well as dip into P5.js. I also included some of the external API stuff from the following code-along videos for "The Weather Here" app. I paid no attention to styling or accessibility - mostly interested in back-end functionality and practicing plain HTML.
 
