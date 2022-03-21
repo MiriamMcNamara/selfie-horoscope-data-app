@@ -55,11 +55,11 @@ app.get("/api/horoscope/:sign", async (req, res) => {
   let horoscopeSign = req.params.sign;
   var options = {
     method: "POST",
-    url: "https://sameer-kumar-aztro-v1.p.rapidapi.com/",
+    url: process.env.API_URL,
     params: { sign: `${horoscopeSign}`, day: "today" },
     headers: {
-      "x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
-      "x-rapidapi-key": "c1978b4f40msh0290e440252b880p14cacajsnd3a57206a669",
+      "x-rapidapi-host": process.env.RAPIDAPI_HOST,
+      "x-rapidapi-key": process.env.RAPIDAPI_KEY,
     },
   };
 

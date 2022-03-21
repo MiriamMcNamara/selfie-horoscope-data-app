@@ -42,4 +42,10 @@ In index.js:
 
 # ADDING EXTERNAL API - Horoscope
 
-- try to use axios instead of fetch?
+- used axios instead of fetch on the back end
+- used a free API called Aztro through RapidAPI
+- created a new page, /horoscope, and did both scripts and HTML in the same file
+- created the select/form and initially hard-coded data to send to the server ('aries') as params on button click using fetch, async/await
+- created GET route in index.js that used axios to make the external API call and then send the response back to the client
+- figured out how to capture the input data (not as familiar with HTML as React hooks so took me a minute) then sent that data instead of hard-coding it
+- moved the API info to .env

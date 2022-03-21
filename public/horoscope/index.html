@@ -10,13 +10,12 @@
     <header>
         
       <p>What is your sign?</p>
-      <form id="formID">
-      <select
+      <select onchange="getSign()"
       type="text"
         name="sign"
         id="sign"
-        default="aries"
       >
+      <option>Select Your Sign</option>
         <option value="aries">Aries</option>
         <option value="taurus">Taurus</option>
         <option value="gemini">Gemini</option>
@@ -30,7 +29,7 @@
         <option value="aquarius">Aquarius</option>
         <option value="pisces">Pisces</option>
       </select>
-    </form>
+  
       <button id="getHoroscope">Get Horoscope</button>
     </header>
   </div>
@@ -44,8 +43,13 @@
   </body>
   <script>
 
-      
-  let sign = document.getElementById("sign").value;
+       let sign='';
+
+function getSign(){
+    let d=document.getElementById('sign');
+    sign=d.options[d.selectedIndex].text;
+    console.log('sign changed:', sign);
+};
 
 const button = document.getElementById("getHoroscope"); 
 button.addEventListener("click", async (event) => {
