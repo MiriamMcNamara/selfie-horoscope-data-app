@@ -39,3 +39,7 @@ In index.js:
   -put API in a .env file, put .env in the gitignore
 - remember to send the response back to the client! res.send/res.json
 - Once you get the info back from the weather API, get it set to the database on submit and displaying on the /logs page
+
+# ADDING EXTERNAL API - Horoscope
+
+- try to use axios instead of fetch?

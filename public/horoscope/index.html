@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Selfie App</title>
+  </head> 
+  
+  <body>
+<div>
+    <header>
+      <label>What is your sign?</label>
+      <select
+      type="text"
+        name="sign"
+        id="sign"
+        default="aries"
+      >
+        <option value="aries">Aries</option>
+        <option value="taurus">Taurus</option>
+        <option value="gemini">Gemini</option>
+        <option value="cancer">Cancer</option>
+        <option value="leo">Leo</option>
+        <option value="virgo">Virgo</option>
+        <option value="libra">Libra</option>
+        <option value="scorpio">Scorpio</option>
+        <option value="sagittarius">Sagittarius</option>
+        <option value="capricorn">Capricorn</option>
+        <option value="aquarius">Aquarius</option>
+        <option value="pisces">Pisces</option>
+      </select>
+      <button id="getHoroscope">Get Horoscope</button>
+    </header>
+  </div>
+  <div>
+    <p>date range: <span id="date_range"></span></p>
+    <p>current date: <span id="current_date"></span></p>
+    <p>your horoscope: <span id="description"></span></p>
+    <p>compatibility: <span id="compatibility"></span></p>
+  </div>
+
+  </body>
+  <script>
+
+      
+  let sign = document.getElementById("sign").value;
+
+const button = document.getElementById("getHoroscope"); 
+button.addEventListener("click", async (event) => {
+console.log('in getHoroscope:', sign);
+const response = await fetch(`/api/horoscope/${sign}`); //fetch the data
+  const data = await response.json(); //parse the data using .json
+  console.log('data:', data );
+
+  document.getElementById("date_range").textContent = data.date_range;
+  document.getElementById("current_date").textContent = data.current_date;
+  document.getElementById("description").textContent = data.description;
+  document.getElementById("compatibility").textContent = data.compatibility;
+
+})
+
+ </script>
+  </html>

@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 const app = express(); //create the app that uses it
 const Datastore = require("nedb"); //require nebd to create database
 require("dotenv").config(); //needed to use .env variables!
+const axios = require("axios");
 
 // console.log(process.env);
 
@@ -45,4 +46,28 @@ app.get("/weather/:lat/:lon", async (req, res) => {
   const fetch_response = await fetch(api_url);
   const json = await fetch_response.json();
   res.send(json);
+});
+
+//GET for horoscope!
+app.get("/api/horoscope/:sign", async (req, res) => {
+  console.log("horoscope hit!");
+  var options = {
+    method: "POST",
+    url: "https://sameer-kumar-aztro-v1.p.rapidapi.com/",
+    params: { sign: "aquarius", day: "today" },
+    headers: {
+      "x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
+      "x-rapidapi-key": "c1978b4f40msh0290e440252b880p14cacajsnd3a57206a669",
+    },
+  };
+
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 });
