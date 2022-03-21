@@ -8,7 +8,9 @@
   <body>
 <div>
     <header>
-      <label>What is your sign?</label>
+        
+      <p>What is your sign?</p>
+      <form id="formID">
       <select
       type="text"
         name="sign"
@@ -28,6 +30,7 @@
         <option value="aquarius">Aquarius</option>
         <option value="pisces">Pisces</option>
       </select>
+    </form>
       <button id="getHoroscope">Get Horoscope</button>
     </header>
   </div>
@@ -46,6 +49,7 @@
 
 const button = document.getElementById("getHoroscope"); 
 button.addEventListener("click", async (event) => {
+   
 console.log('in getHoroscope:', sign);
 const response = await fetch(`/api/horoscope/${sign}`); //fetch the data
   const data = await response.json(); //parse the data using .json

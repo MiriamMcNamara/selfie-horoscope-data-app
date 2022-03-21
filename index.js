@@ -51,10 +51,12 @@ app.get("/weather/:lat/:lon", async (req, res) => {
 //GET for horoscope!
 app.get("/api/horoscope/:sign", async (req, res) => {
   console.log("horoscope hit!");
+  console.log("req.params:", req.params);
+  let horoscopeSign = req.params.sign;
   var options = {
     method: "POST",
     url: "https://sameer-kumar-aztro-v1.p.rapidapi.com/",
-    params: { sign: "aquarius", day: "today" },
+    params: { sign: `${horoscopeSign}`, day: "today" },
     headers: {
       "x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
       "x-rapidapi-key": "c1978b4f40msh0290e440252b880p14cacajsnd3a57206a669",
